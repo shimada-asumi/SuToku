@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+html {
+   font-size: 62.5%;	/* 10px */
+}
+
+p {
+	font-size: 1.6rem;
+}
+
+/* 半角の文字の強調 */
+strong {
+	font-size: 1.8rem;
+	text-decoration: underline;
+}
+
+/* 9×9の表 */
+td {
+	margin: 0rem;
+	padding: 0rem;
+	width: 5rem;
+	height: 5rem;
+	border: solid 0.1rem black; 
+	text-align: center;  
+}
+
+/* 一番外の枠 */
+table {
+	padding: 0rem;
+	border: solid 0.5rem black;
+	border-collapse: collapse;
+}
+
+/* 3*3の枠 */
+tbody {
+	padding: 0rem;
+	border: solid 0.5rem black;
+}
+
+colgroup {
+	border: solid 0.5rem black;
+}
+
+.number-input {
+	width: 5rem;
+	height: 5rem;
+	border: none;
+	font-size: 3rem;
+	text-align: center;
+}
+
+/* 入力欄を水色に */
+.number-input:hover {
+	background-color:  #aedfed;
+}
+
+/* ボタン */
+button {
+	margin: 1rem .5rem;
+}
+
+button:hover {
+	background-color:  #aedfed;
+}
