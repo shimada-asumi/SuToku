@@ -21,6 +21,7 @@ public class FilterEncoding implements Filter {
 		
 		//　文字コード指定"UTF-8"
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		chain.doFilter(request, response);
 	}
 	
