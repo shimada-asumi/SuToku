@@ -14,7 +14,9 @@ import javax.servlet.http.HttpSession;
 
 import model.Sudoku;
 
-// 数独をセッションスコープに保存し、JudgeSudokuへ移動する
+/*
+ *　入力された数独をセッションスコープに保存し、JudgeSudoku.jspに移動する。
+ */
 
 @WebServlet("/InputSudoku")
 public class InputSudoku extends HttpServlet {
@@ -27,16 +29,12 @@ public class InputSudoku extends HttpServlet {
 		
 		// ナンバーリストの作成
 		List<Sudoku> numberList = new LinkedList<Sudoku>();
-				
-		// 入力の無い場所に0を加える
-		for (int i = 0; i < inputSudoku.length; i++) {
+		
+		
+		for (int i = 0; i < inputSudoku.length; i++) {	// 0 ～ 80まで
 			
 			// 前後の空白を削除
 			String number = inputSudoku[i].strip();
-			
-			if (number.length() == 0) {
-				number = inputSudoku[i] = "0";
-			}
 			
 			//　ナンバーリストに数字を追加
 			Sudoku sudoku = new Sudoku(number);

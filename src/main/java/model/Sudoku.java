@@ -2,7 +2,9 @@ package model;
 
 import java.io.Serializable;
 
-//　入力された数独の値を保存する
+/*
+ *　入力された数独の値を保存するクラス
+ */
 
 public class Sudoku implements Serializable {
 	

@@ -4,15 +4,13 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="author" content="島田あす美">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>数解く</title>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 
 <!-- 数独を入力するためのページ -->
-<body　ontouchstart="">
+<body>
 	<h1>数独を解くプログラム</h1>
  	<p>1～9までの数字を<strong>半角</strong>で入力してください</p>
  	
@@ -23,13 +21,20 @@
 			<colgroup><col><col><col>
 			
 			<!-- 9×9の表を作る -->
+			
+			<!-- カウンターの初期化 -->
+			<c:set var="count" value="${0}"/>
 			<c:forEach begin="1" end="3"> <!-- 一辺あたりのエリアの数 -->
 				<tbody>
 					<c:forEach begin="1" end="3"> <!-- エリアの行数 -->
 						<tr>
 						<c:forEach begin="1" end="9"> <!-- 列の数 -->
 							<td>
-								<input type="number" class="number-input"  maxlength="1" name = "num">
+								<input type="number" class="number-input"  maxlength="1" 
+								name = "num"  value="${numberList[count].number}">
+								
+								<!-- カウンターの更新 -->
+								<c:set value="${count + 1}" var="count"/>
 							</td>
 						</c:forEach>
 						</tr>
@@ -40,7 +45,8 @@
 		</table>
 			
 		<button type="submit">送信</button>
-		<button type="reset">リセット</button>
+		<br>
+		<a href="ResetNumber">リセット</a>
 	</form>	
 
 </body>
