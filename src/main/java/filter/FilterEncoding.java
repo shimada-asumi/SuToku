@@ -10,9 +10,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-//　文字コードを指定するフィルター
-
-@WebFilter({ "/FilterEncoding", "/*" })
+/*
+ * 文字コードを指定するフィルタ
+ */
+@WebFilter("/*")
 public class FilterEncoding implements Filter {
 	
 	public void init(FilterConfig fConfig) throws ServletException { }
