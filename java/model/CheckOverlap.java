@@ -5,33 +5,35 @@ package model;
  */
 public class CheckOverlap {
 	// 重複のチェックをするメソッド
-	public boolean isOk (String[][] sd2D, int y, int x, int i) {
+	public boolean isOk (String[][] sd2D, int row, int col, int i) {
 		
 		for (int k = 0; k < 9; k++) {
 						
-			// 行のチェックをする
-			if ((String.valueOf(i)).equals(sd2D[y][k])) {
+			// 同じ行に同じ番号がないかチェックする
+			if ((String.valueOf(i)).equals(sd2D[row][k])) {
 				return false;
 			}
 			
-			// 列のチェックをする
-			if ((String.valueOf(i)).equals(sd2D[k][x])) {
+			// 同じ列に同じ番号がないかチェックする
+			if ((String.valueOf(i)).equals(sd2D[k][col])) {
 				return false;
 			}
 			
 		}
 		
-		// エリアのチェックをする
-		int startY = y / 3 * 3; // 左上のy座標
-		int startX = x / 3 * 3; // 左上のx座標
+		// 同じエリアに同じ番号がないかチェックする
+		// エリアの左上のマスの行と列の座標を求める
+		int startR = row / 3 * 3;
+		int startC = col / 3 * 3;
 		
-		for (int d = 0; d < 3; d++) {
-			for (int r = 0; r < 3; r++) {
+		// 左上のマスから、右、下方向に3マスずつの範囲（エリア）を指定する。
+		for (int r = 0; r < 3; r++) {
+			for (int c = 0; c < 3; c++) {
 		
-				int ereaY = startY + d; // 調べるマスのy座標
-				int ereaX = startX + r; // 調べるマスのx座標
+				int ereaR = startR + r; // 調べるマスの行番号
+				int ereaC = startC + c; // 調べるマスの列番号
 				
-				if ((String.valueOf(i)).equals(sd2D[ereaY][ereaX])) {
+				if ((String.valueOf(i)).equals(sd2D[ereaR][ereaC])) {
 					return false;
 				}
 			}

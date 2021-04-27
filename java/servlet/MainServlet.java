@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.CheckAnswer;
 import model.ProcessArray;
 import model.PutNumber;
 import model.ReturnOverlap;
@@ -44,25 +45,35 @@ public class MainServlet extends HttpServlet {
 		ReturnOverlap returnOverlap = new ReturnOverlap();
 		Set<Integer> overlap = returnOverlap.returnOverlap(sd2D);
 		
-		if (overlap.size() == 0) { // 重複なし
-			
-			// test
-			//CheckOverlap checkOverlap = new CheckOverlap();
-			//boolean check = checkOverlap.isOk(sd2D, 8, 8, 9);
-			//PrintWriter out = response.getWriter();
-			//out.println(check);
+		// 重複なし
+		if (overlap.size() == 0) {
 			
 			// 答えを求める過程へ進む
-			PutNumber putNumber = new PutNumber();
-			String[][] answer2D = putNumber.putNumber(sd2D);
+			PutNumber putNumber = new PutNumber();			
+			String[][] answer2D = putNumber.returnAnswer(sd2D);
 			
-			// 配列を一次元配列にして、セッションスコープに保存する
-			String[] answer = processArray.to1D(answer2D);
-			session.setAttribute("answer", answer);
+			// 問題が解けているかどうか判断する
+			CheckAnswer checkAnswer = new CheckAnswer();
+			boolean solved = checkAnswer.isSolved(answer2D);
 			
-			// 答えを表示する画面へフォワード
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/answer.jsp");
-			dispatcher.forward(request, response);
+			// 解けていたら解答を示す画面へ
+			if (solved == true) {
+				
+				// 配列を一次元配列にして、セッションスコープに保存する
+				String[] answer = processArray.to1D(answer2D);
+				session.setAttribute("answer", answer);
+				
+				// 答えを表示する画面へフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/answer.jsp");
+				dispatcher.forward(request, response);
+			
+			// 解けなかった場合
+			} else {
+				
+				// 解けませんでした画面へ
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sorry.jsp");
+				dispatcher.forward(request, response);
+			}
 			
 		} else { // 重複あり
 			
@@ -74,11 +85,4 @@ public class MainServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 	}
-
-	
-	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		※いつか、メッセージ機能を付ける時用にとっておく
-		doGet(request, response);
-	}*/
-
 }

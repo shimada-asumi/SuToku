@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Shimada.Asumi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>答え</title>
+	<title>解けませんでした</title>
 	
 	<!-- ファビコン -->
 	<link rel="shortcut icon" href="favicon.ico"/>
@@ -25,7 +25,7 @@
 <body>	
 	<div class="container">
 		<!-- 答えを表示するページ -->
-		<p>解けました！</p>
+		<p>ごめんなさい。。。この問題は解けませんでした。</p>
 		<!-- 9×9の表を作る -->
 		<table border="1">
 			<colgroup><col><col><col>
@@ -39,7 +39,7 @@
 						<tr>
 						<c:forEach begin="1" end="9"> <%-- 列の数 --%>
 							<td>
-								<c:out value="${answer[count]}"/>
+								<c:out value="${sd[count]}"/>
 								<%-- カウンターの更新 --%>
 								<c:set value="${count + 1}" var="count"/>
 							</td>
@@ -50,7 +50,8 @@
 			</c:forEach>
 		</table>	
 		<!-- ボタン -->
-		<a href="DestroySessionServlet"><button type="button">Topへ戻る</button></a>
+		<a href="index.jsp"><button type="button">入力をやり直す</button></a>
+		<a href="DestroySessionServlet"><button type="button">終わる</button></a>
 	</div>
 </body>
 </html>

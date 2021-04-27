@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="島田あす美">
+    <meta name="author" content="Shimada.Asumi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>数解く</title>
 	
@@ -26,7 +26,8 @@
 	<!-- 数独を入力するためのページ -->
 	<div class="container">
 		<h1>数解く</h1>
-		<p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～</p>
+		<p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～&emsp;
+		<a href="https://ja.wikipedia.org/w/index.php?title=%E6%95%B0%E7%8B%AC">数独とは？</a></p>
 		<p>1～9までの数字を上下ボタンで選択するか、直接<strong>半角</strong>で入力してください</p>
 		
 		<form action="MainServlet" method="get">
@@ -57,6 +58,7 @@
 			<!-- ボタン -->
 			<button type="submit">送信</button>
 			<a href="DestroySessionServlet"><button type="button">リセット</button></a>
+			<p>※全ての問題が解ける訳ではありません。ご容赦ください。</p>
 		</form>	
 	</div>
 </body>
