@@ -9,6 +9,10 @@
 	   font-size: 62.5%;/* 10px */
 	}
 	
+	p {
+		font-size: 1.4rem;
+	}
+	
 	/* 一番外の枠 */
 	table {
 		margin-bottom: 1rem;

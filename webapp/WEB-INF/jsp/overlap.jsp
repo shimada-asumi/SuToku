@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="島田あす美">
+    <meta name="author" content="Shimada.Asumi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>数字が重複しています</title>
 	
@@ -58,7 +58,8 @@
 			</c:forEach>
 		</table>
 		<!-- ボタン -->	
-		<p><a href="index.jsp"><button type="button">戻る</button></a></p>
+		<a href="index.jsp"><button type="button">入力を訂正する</button></a>
+		<a href="DestroySessionServlet"><button type="button">終わる</button></a>
 	</div>
 </body>
 </html>

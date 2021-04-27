@@ -23,12 +23,12 @@ public class ProcessArray {
 		
 		String[][] sudoku2D = new String[9][9];
 
-		for (int y = 0; y < 9; y++) {
-			for (int x = 0; x < 9; x++) {
+		for (int row = 0; row < 9; row++) {
+			for (int col = 0; col < 9; col++) {
 				
-				int count = y * 9 + x; // 左上からの位置(0～80)
+				int count = row * 9 + col; // 左上からの位置(0～80)
 				String number = sudoku[count];
-				sudoku2D[y][x] = number;
+				sudoku2D[row][col] = number;
 			}
 		}
 		return sudoku2D;
@@ -43,16 +43,28 @@ public class ProcessArray {
 		return sudokuCopy;
 	}
 	
+	// 二次元配列をコピーするメソッド
+	public String[][] copy2D (String[][] sudoku2D, String[][] sudoku2DCopy) {
+		
+		for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                
+            	sudoku2DCopy[i][j] = sudoku2D[i][j];
+            }
+        }
+		return sudoku2DCopy;
+	}
+	
 	// 二次元配列を一次元配列にするメソッド
 	public String[] to1D (String[][] sudoku2D) {
 
 		String[] sudoku = new String[81];
 		
-		for (int y = 0; y < 9; y++) {
-			for (int x = 0; x < 9; x++) {
+		for (int row = 0; row < 9; row++) {
+			for (int col = 0; col < 9; col++) {
 						
-				int count = y * 9 + x; // 左上からの位置(0～80)
-				String number = sudoku2D[y][x];
+				int count = row * 9 + col; // 左上からの位置(0～80)
+				String number = sudoku2D[row][col];
 				sudoku[count] = number;
 			}
 		}
