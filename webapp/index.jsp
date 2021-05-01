@@ -22,13 +22,13 @@
 	<%@ include file="WEB-INF/jsp/includeStyle.jsp"%>
 	
 </head>
-<body>
+<body ontouchstart="">
 	<!-- 数独を入力するためのページ -->
 	<div class="container">
 		<h1>数解く</h1>
-		<p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～&emsp;
+		<p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～<br>
 		<a href="https://ja.wikipedia.org/w/index.php?title=%E6%95%B0%E7%8B%AC">数独とは？</a></p>
-		<p>1～9までの数字を上下ボタンで選択するか、直接<strong>半角</strong>で入力してください</p>
+		<p>1～9までの数字を直接<strong>半角</strong>で入力するか、上下ボタンで選択（PC版）してください</p>
 		
 		<form action="MainServlet" method="get">
 			<!-- 9×9の表を作る -->
