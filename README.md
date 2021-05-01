@@ -13,6 +13,10 @@ java-11
 HTML
 CSS
 
+# その他使用技術
+jtsl　1.2
+bootstrap5.0
+
 # 使用サーバー
 さくらのVPS
 
