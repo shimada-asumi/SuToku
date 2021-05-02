@@ -1,19 +1,33 @@
 package model;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /*
  * 配列の加工を行うクラス
  */
 public class ProcessArray {
 
-	// 前後の空白を削除するメソッド
+	// 前後の空白を削除し、一桁の数字以外をはじく
 	public String[] deleteSpace (String[] sudoku) {
+		
+		Pattern pNum = Pattern.compile("[1-9]"); // 1-9までの数字かどうか
 		
 		for (int i = 0; i < sudoku.length; i++) {
 			
-			String number = sudoku[i].strip();
-			sudoku[i] = number;
+			String number = sudoku[i].strip(); // 空白の除去
+			Matcher m = pNum.matcher(number); // パターンにマッチするかどうか
+			
+			// 文字列の長さが0か1で、かつ数字ならば配列に格納する
+			if (number.length() == 1 && m.find()) {
+				
+				sudoku[i] = number;	
+			} else {
+				
+				// そうでなければ空にする
+				sudoku[i] = "";
+			}
 		}
 		return sudoku;
 	} 

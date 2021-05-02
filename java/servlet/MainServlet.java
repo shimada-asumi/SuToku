@@ -32,10 +32,11 @@ public class MainServlet extends HttpServlet {
 		// リクエストパラメータを取得
 		String[] sudoku = request.getParameterValues("num");
 		
-		// 空白を除去して、セッションスコープに保存する
+		// 空白を除去して1-9かどうかチェックを行う
 		ProcessArray processArray = new ProcessArray();
 		String[] sd = processArray.deleteSpace(sudoku);
 		
+		// セッションスコープに保存する
 		HttpSession session = request.getSession();
 		session.setAttribute("sd", sd);
 		
@@ -82,7 +83,7 @@ public class MainServlet extends HttpServlet {
 			// 重複の情報をセッションスコープに保存
 			session.setAttribute("overlap", overlap);
 			
-			// プロパティに設定(Java Beansの練習も兼ねて使っています)
+			// メッセージ用の文字列を用意する(Java Beansの練習も兼ねて使っています)
 			String text = "";
 			Message message = new Message();
 			message.setText(text);
@@ -91,6 +92,7 @@ public class MainServlet extends HttpServlet {
 			CheckSameNumber checkSameNumber = new CheckSameNumber();
 			boolean all = checkSameNumber.isAllSame(sd2D, message);
 			
+			// 全部同じ数字だった場合
 			if (all == true) {
 				
 				// メッセージをリクエストスコープに保存
@@ -99,8 +101,8 @@ public class MainServlet extends HttpServlet {
 				// おめでとうの画面へフォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/congrats.jsp");
 				dispatcher.forward(request, response);
-				
-				
+			
+			// 全部同じ数字ではなかった場合
 			} else {
 			
 			// 入力訂正を促す画面へフォワード
