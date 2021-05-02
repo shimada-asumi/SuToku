@@ -22,15 +22,20 @@
 	<%@ include file="WEB-INF/jsp/includeStyle.jsp"%>
 	
 </head>
-<body>
+<body　ontouchstart="">
 	<!-- 数独を入力するためのページ -->
 	<div class="container">
-		<h1>数解く</h1>
-		<p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～&emsp;
-		<a href="https://ja.wikipedia.org/w/index.php?title=%E6%95%B0%E7%8B%AC">数独とは？</a></p>
-		<p>1～9までの数字を上下ボタンで選択するか、直接<strong>半角</strong>で入力してください</p>
-		
-		<form action="MainServlet" method="get">
+	　　<div class="row">
+	    <div class="title">
+	      <h1>数解く</h1>
+		  <p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～</p>
+		</div>
+		  <p><a href="https://ja.wikipedia.org/w/index.php?title=%E6%95%B0%E7%8B%AC">数独とは？</a></p>
+		  <p>1～9までの数字を<strong>半角</strong>で入力するか、上下ボタンで選択（PC版）してください</p>
+	  </div>
+	  <div class="row">
+	    <div class="col-md-auto">
+		  <form action="Main" method="get">
 			<!-- 9×9の表を作る -->
 			<table border="1">
 				<colgroup><col><col><col>
@@ -57,9 +62,24 @@
 			</table>
 			<!-- ボタン -->
 			<button type="submit">送信</button>
-			<a href="DestroySessionServlet"><button type="button">リセット</button></a>
-			<p>※全ての問題が解ける訳ではありません。ご容赦ください。</p>
-		</form>	
+			<a href="Reset"><button type="button">リセット</button></a>
+		  </form>
+	   </div>
+	   <div class="col-md-auto">
+	     <h2>注意</h2>
+	     <p>※数字が重複していると入力のやり直しになります</p>
+	     <p>※数字が少なすぎる問題は解けません。</p>
+	     <p>※全ての問題が解ける訳ではありません。ご容赦ください。</p>
+	     <p>※iPhoneの場合、数字ごとに確定ボタンを1回押すか、<br>
+		 次のマスを2回押して入力バーを移動させると<br>
+		 入力がしやすくなる場合があります。</p>
+	     
+	     <h2>テスト用の問題（準備中です）</h2>
+	     <a href="#"><button type="button">テスト1</button></a>
+	     <a href="#"><button type="button">テスト2</button></a>
+	     <p>※どちらも自作の問題です。</p>   
+	   </div>	
 	</div>
+  </div>
 </body>
 </html>

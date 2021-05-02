@@ -59,7 +59,7 @@
 		</table>
 		<!-- ボタン -->	
 		<a href="index.jsp"><button type="button">入力を訂正する</button></a>
-		<a href="DestroySessionServlet"><button type="button">終わる</button></a>
+		<a href="Reset"><button type="button">終わる</button></a>
 	</div>
 </body>
 </html>

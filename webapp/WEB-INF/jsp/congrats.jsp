@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Shimada.Asumi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>解けませんでした</title>
+	<title>おめでとう</title>
 	
 	<!-- ファビコン -->
 	<link rel="shortcut icon" href="favicon.ico"/>
@@ -16,17 +16,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!--　CSSファイル -->
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
-
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>	
+	
 	<!-- 静的インクルード（テーブルのスタイル） -->
 	<%@ include file="includeStyle.jsp"%>
 	
 </head>
-<body>	
+<body>
 	<div class="container">
-		<!-- 答えを表示するページ -->
-		<p>ごめんなさい。。。この問題は解けませんでした。</p>
-		<!-- 9×9の表を作る -->
+		<!-- 全部同じ数字だった場合のページ -->
+	 	<p>全部同じ数字です！
+	 	<br><c:out value="${message.text}"/></p>
+	 	<!-- 9×9の表を作る -->
 		<table border="1">
 			<colgroup><col><col><col>
 			<colgroup><col><col><col>
@@ -48,9 +49,9 @@
 					</c:forEach>
 				</tbody>
 			</c:forEach>
-		</table>	
-		<!-- ボタン -->
-		<a href="index.jsp"><button type="button">入力をやり直す</button></a>
+		</table>
+		<!-- ボタン -->	
+		<a href="index.jsp"><button type="button">入力を訂正する</button></a>
 		<a href="Reset"><button type="button">終わる</button></a>
 	</div>
 </body>

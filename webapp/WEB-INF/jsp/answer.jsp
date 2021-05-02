@@ -50,7 +50,7 @@
 			</c:forEach>
 		</table>	
 		<!-- ボタン -->
-		<a href="DestroySessionServlet"><button type="button">Topへ戻る</button></a>
+		<a href="Reset"><button type="button">Topへ戻る</button></a>
 	</div>
 </body>
 </html>
