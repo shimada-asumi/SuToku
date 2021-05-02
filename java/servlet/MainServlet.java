@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.CheckAnswer;
+import model.CheckSameNumber;
+import model.Message;
 import model.ProcessArray;
 import model.PutNumber;
 import model.ReturnOverlap;
@@ -21,7 +23,7 @@ import model.ReturnOverlap;
  * 2．入力された数字の重複チェックの結果を受け取り、次へ進むか入力画面に戻るか判断する
  * 3．答えの数字を受け取り、表示画面へフォワードする。
  */
-@WebServlet("/MainServlet")
+@WebServlet("/Main")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,10 +32,11 @@ public class MainServlet extends HttpServlet {
 		// リクエストパラメータを取得
 		String[] sudoku = request.getParameterValues("num");
 		
-		// 空白を除去して、セッションスコープに保存する
+		// 空白を除去して1-9かどうかチェックを行う
 		ProcessArray processArray = new ProcessArray();
 		String[] sd = processArray.deleteSpace(sudoku);
 		
+		// セッションスコープに保存する
 		HttpSession session = request.getSession();
 		session.setAttribute("sd", sd);
 		
@@ -80,9 +83,32 @@ public class MainServlet extends HttpServlet {
 			// 重複の情報をセッションスコープに保存
 			session.setAttribute("overlap", overlap);
 			
+			// メッセージ用の文字列を用意する(Java Beansの練習も兼ねて使っています)
+			String text = "";
+			Message message = new Message();
+			message.setText(text);
+			
+			// 全部同じ数字かどうか
+			CheckSameNumber checkSameNumber = new CheckSameNumber();
+			boolean all = checkSameNumber.isAllSame(sd2D, message);
+			
+			// 全部同じ数字だった場合
+			if (all == true) {
+				
+				// メッセージをリクエストスコープに保存
+				request.setAttribute("message", message);
+				
+				// おめでとうの画面へフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/congrats.jsp");
+				dispatcher.forward(request, response);
+			
+			// 全部同じ数字ではなかった場合
+			} else {
+			
 			// 入力訂正を促す画面へフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/overlap.jsp");
 			dispatcher.forward(request, response);
+			}
 		}
 	}
 }

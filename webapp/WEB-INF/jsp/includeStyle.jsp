@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<style>		
-	/* 
-	9×9の表 CSSファイルが読み込まれない時のためにここに記述する
+<style>
+    
+    /* 
+	全体 CSSファイルが読み込まれないのでここに記述する
 	----------------------------- */
-	
+    	
 	html {
 	   font-size: 62.5%;/* 10px */
 	}
@@ -12,6 +13,18 @@
 	p {
 		font-size: 1.4rem;
 	}
+	
+	/* 
+	タイトル
+	----------------------------- */
+	
+	.title {
+        background-color: #aedfed;	
+	}
+
+	/* 
+	9×9の表
+	----------------------------- */
 	
 	/* 一番外の枠 */
 	table {
@@ -42,17 +55,18 @@
 		text-align: center;  
 	}
 	
-	/* 入力欄の設定 */
+	/* 
+	入力欄の設定
+	------------------------------ */
 	.number-input {
 		width: 4rem;
 		height: 4rem;
 		border: none;	
 		text-align: center;
 	}
-	
-	/* 入力欄を水色に */
+
 	.number-input:hover {
-		background-color:  #aedfed;
+		background-color: #aedfed;
 	}
 	
 	/* 
@@ -62,4 +76,12 @@
 		margin-right: 2rem;
 		font-size: 1.2rem;
 	}
+	
+	/* 
+	注意書き
+	----------------------------- */
+	h2 {
+	    margin-top: 2.5rem;
+	}
+	
 </style>

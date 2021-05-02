@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +47,8 @@
 										<c:out value="※"/>
 									</c:if>
 								</c:forEach>
-								
-								<c:out value="${sd[count]}"/>
+								<%-- XSS対策 --%>
+								<c:out value="${fn:escapeXml(sd[count])}"/>
 								<%-- カウンターの更新 --%>
 								<c:set value="${count + 1}" var="count"/>
 							</td>
@@ -59,7 +60,7 @@
 		</table>
 		<!-- ボタン -->	
 		<a href="index.jsp"><button type="button">入力を訂正する</button></a>
-		<a href="DestroySessionServlet"><button type="button">終わる</button></a>
+		<a href="Reset"><button type="button">終わる</button></a>
 	</div>
 </body>
 </html>

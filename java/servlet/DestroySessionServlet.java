@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /*
  * セッションスコープ内のインスタンスを削除し、トップに戻る
  */
-@WebServlet("/DestroySessionServlet")
+@WebServlet("/Reset")
 public class DestroySessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
