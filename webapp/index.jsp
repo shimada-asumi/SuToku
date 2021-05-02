@@ -21,24 +21,22 @@
 	<!-- 静的インクルード（テーブルのスタイル） -->
 	<%@ include file="WEB-INF/jsp/includeStyle.jsp"%>
 	
+</head> 
 </head>
-  
 <body　ontouchstart="">
 	<!-- 数独を入力するためのページ -->
 	<div class="container">
-	　　<div class="row">
+	　<div class="row">
 	    <div class="title">
 	      <h1>数解く</h1>
 		  <p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～</p>
-		</div>
+	    </div>
 		  <p><a href="https://ja.wikipedia.org/w/index.php?title=%E6%95%B0%E7%8B%AC">数独とは？</a></p>
 		  <p>1～9までの数字を<strong>半角</strong>で入力するか、上下ボタンで選択（PC版）してください</p>
 	  </div>
 	  <div class="row">
 	    <div class="col-md-auto">
 		  <form action="Main" method="get">
-=======
-
 			<!-- 9×9の表を作る -->
 			<table border="1">
 				<colgroup><col><col><col>
