@@ -22,6 +22,7 @@
 	<%@ include file="WEB-INF/jsp/includeStyle.jsp"%>
 	
 </head>
+  
 <body　ontouchstart="">
 	<!-- 数独を入力するためのページ -->
 	<div class="container">
@@ -36,6 +37,8 @@
 	  <div class="row">
 	    <div class="col-md-auto">
 		  <form action="Main" method="get">
+=======
+
 			<!-- 9×9の表を作る -->
 			<table border="1">
 				<colgroup><col><col><col>
