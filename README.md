@@ -1,6 +1,6 @@
 # SuToku
 数独を解くアプリです。
-url:http://sdksolve.com/SuToku
+url:https://sdksolve.com/SuToku
 バックトラックによる総当たりで数独を解きます。
 世界一難しいといわれている数独も解くことができました。
 就職活動で使用する予定なので、日本語でREAD MEを書いています。
