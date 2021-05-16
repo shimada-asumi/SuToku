@@ -40,7 +40,7 @@
 						<tr>
 						<c:forEach begin="1" end="9"> <%-- 列の数 --%>
 							<td>
-							　　　　<%-- XSS対策 --%>
+								<%-- XSS対策 --%>
 								<c:out value="${fn:escapeXml(answer[count])}"/>
 								<%-- カウンターの更新 --%>
 								<c:set value="${count + 1}" var="count"/>

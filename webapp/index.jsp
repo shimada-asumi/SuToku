@@ -74,9 +74,14 @@
 		 次のマスを2回押して入力バーを移動させると<br>
 		 入力がしやすくなる場合があります。</p>
 	     
-	     <h2>テスト用の問題（準備中です）</h2>
-	     <a href="#"><button type="button">テスト1</button></a>
-	     <a href="#"><button type="button">テスト2</button></a>
+	     <h2>動作テスト用の問題</h2>
+	     <form action="Test" method="get" class="pulldown-test">
+	     　	<select name="testNum">
+				<option value="test1">問題1</option>
+				<option value="test2">問題2</option>
+			</select>
+	      	<button type="submit">試す</button>
+	     </form>
 	     <p>※どちらも自作の問題です。</p>   
 	   </div>	
 	</div>
