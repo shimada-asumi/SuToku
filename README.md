@@ -10,12 +10,14 @@ url:https://sdksolve.com/SuToku
 
 # 使用言語
 java-11
-HTML
-CSS
+HTML5
+CSS3
+SQL
 
 # その他使用技術
 jtsl1.2
 bootstrap5.0
+mariadb10.5.9
 
 # 使用サーバー
 さくらのVPS
