@@ -21,16 +21,15 @@
 	<!-- 静的インクルード（テーブルのスタイル） -->
 	<%@ include file="WEB-INF/jsp/includeStyle.jsp"%>
 	
-</head> 
 </head>
 <body　ontouchstart="">
 	<!-- 数独を入力するためのページ -->
 	<div class="container">
-	　<div class="row">
+	　　<div class="row">
 	    <div class="title">
 	      <h1>数解く</h1>
 		  <p class="sub-title">～数<span>（すう）</span>独を解く<span>（とく）</span>プログラムです！～</p>
-	    </div>
+		</div>
 		  <p><a href="https://ja.wikipedia.org/w/index.php?title=%E6%95%B0%E7%8B%AC">数独とは？</a></p>
 		  <p>1～9までの数字を<strong>半角</strong>で入力するか、上下ボタンで選択（PC版）してください</p>
 	  </div>
@@ -75,9 +74,14 @@
 		 次のマスを2回押して入力バーを移動させると<br>
 		 入力がしやすくなる場合があります。</p>
 	     
-	     <h2>テスト用の問題（準備中です）</h2>
-	     <a href="#"><button type="button">テスト1</button></a>
-	     <a href="#"><button type="button">テスト2</button></a>
+	     <h2>動作テスト用の問題</h2>
+	     <form action="Test" method="get" class="pulldown-test">
+	     　	<select name="testNum">
+				<option value="test1">問題1</option>
+				<option value="test2">問題2</option>
+			</select>
+	      	<button type="submit">試す</button>
+	     </form>
 	     <p>※どちらも自作の問題です。</p>   
 	   </div>	
 	</div>

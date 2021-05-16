@@ -84,4 +84,11 @@
 	    margin-top: 2.5rem;
 	}
 	
+	/* 
+	プルダウンフォーム
+	----------------------------- */
+	.pulldown-test {
+		font-size: 1.2rem;
+	}
+	
 </style>
